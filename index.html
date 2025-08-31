@@ -5,50 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aaron Project</title>
   <style>
-    /* Reset dasar */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     /* Background utama */
     body {
       font-family: Arial, sans-serif;
-      background: url("Black.jpeg") no-repeat center center fixed;
+      background: url("Black.jpeg") no-repeat center center fixed; 
       background-size: cover;
+      text-align: center;
+      padding: 50px;
       color: #fff;
       text-shadow: 1px 1px 3px #000;
+      margin: 0;
       height: 100vh;
       overflow: hidden;
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    /* Layer asap ungu-merah bergerak */
+    /* Animasi tepi ungu + merah */
     body::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("ungu.jpg") no-repeat center center;
-      background-size: 300% 300%;
-      opacity: 0.35;
-      animation: smokeFlow 60s linear infinite;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, rgba(180,0,60,0.7), rgba(90,0,150,0.7), rgba(180,0,60,0.7));
+      animation: spin 15s linear infinite, pulse 3s ease-in-out infinite;
       z-index: 0;
     }
 
-    @keyframes smokeFlow {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Lapisan biar konten tetap jelas */
     body::after {
       content: "";
       position: absolute;
@@ -58,17 +42,23 @@
       bottom: 0;
       background: url("Black.jpeg") no-repeat center center fixed;
       background-size: cover;
-      opacity: 0.9;
       z-index: 1;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.9; }
     }
 
     /* Konten utama */
     .content {
       position: relative;
       z-index: 2;
-      text-align: center;
-      padding: 40px;
-      border-radius: 12px;
     }
 
     img {
