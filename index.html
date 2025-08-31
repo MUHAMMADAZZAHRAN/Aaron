@@ -5,15 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aaron Project</title>
   <style>
-    /* Background halaman */
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Background utama */
     body {
       font-family: Arial, sans-serif;
-      background: url("Black.jpeg") no-repeat center center fixed; 
+      background: url("Black.jpeg") no-repeat center center fixed;
       background-size: cover;
-      text-align: center;
-      padding: 50px;
       color: #fff;
       text-shadow: 1px 1px 3px #000;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Bingkai animasi ungu + merah */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8px; /* ketebalan border */
+      background: linear-gradient(270deg, #800080, #ff0000, #800080);
+      background-size: 600% 600%;
+      animation: gradientMove 12s ease infinite;
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      z-index: 0;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Konten utama */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px;
+      border-radius: 12px;
     }
 
     img {
@@ -61,32 +107,34 @@
 
     /* Tombol khusus TikTok */
     .tiktok {
-      background-image: url("merah.jpg"); /* ganti dengan gambar TikTok */
+      background-image: url("merah.jpg");
     }
 
     /* Tombol khusus Spotify */
     .spotify {
-      background-image: url("ungu.jpg"); /* ganti dengan gambar Spotify */
+      background-image: url("ungu.jpg");
     }
   </style>
 </head>
 <body>
-  <!-- Gambar Logo Aaron -->
-  <img src="Gambar WhatsApp .jpg" alt="Aaron Logo">
+  <div class="content">
+    <!-- Gambar Logo Aaron -->
+    <img src="Gambar WhatsApp .jpg" alt="Aaron Logo">
 
-  <h2>𝖆𝖆𝖗𝖔𝖓 𝖕𝖆𝖌𝖊</h2>
-  <p>𝔠𝔥𝔬𝔦𝔠𝔢 𝔥𝔞𝔳𝔢 𝔠𝔬𝔫𝔰𝔢𝔮𝔲𝔫𝔠𝔢𝔰</p>
+    <h2>𝖆𝖆𝖗𝖔𝖓 𝖕𝖆𝖌𝖊</h2>
+    <p>𝔠𝔥𝔬𝔦𝔠𝔢 𝔥𝔞𝔳𝔢 𝔠𝔬𝔫𝔰𝔢𝔮𝔲𝔫𝔠𝔢𝔰</p>
 
-  <div class="container">
-    <!-- Tombol TikTok -->
-    <a href="https://www.tiktok.com/@arannn__________________?is_from_webapp=1&sender_device=pc" target="_blank">
-      <button class="btn tiktok">ᴅᴇᴀᴛʜ?‌</button>
-    </a>
+    <div class="container">
+      <!-- Tombol TikTok -->
+      <a href="https://www.tiktok.com/@arannn__________________?is_from_webapp=1&sender_device=pc" target="_blank">
+        <button class="btn tiktok">ᴅᴇᴀᴛʜ?‌</button>
+      </a>
 
-    <!-- Tombol Spotify -->
-    <a href="https://open.spotify.com/playlist/2PNBuI3XyPKgwD7piInTrn?si=8139bab0c3524a8c&pt=c8ab93ce8dc5ad1fe3ac6bc7a4c6474d" target="_blank">
-      <button class="btn spotify">ᴜɴᴅᴇᴀᴛʜ?‌</button>
-    </a>
+      <!-- Tombol Spotify -->
+      <a href="https://open.spotify.com/playlist/2PNBuI3XyPKgwD7piInTrn?si=8139bab0c3524a8c&pt=c8ab93ce8dc5ad1fe3ac6bc7a4c6474d" target="_blank">
+        <button class="btn spotify">ᴜɴᴅᴇᴀᴛʜ?‌</button>
+      </a>
+    </div>
   </div>
 </body>
 </html>
